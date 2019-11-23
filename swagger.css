@@ -1,0 +1,15 @@
+.topbar {
+    display: none;
+}
+.scheme-container {
+    display: none;
+}
+.wrapper {
+    width: 60% !important;
+}
+
+@media only screen and (max-width: 800px) {
+    .wrapper {
+        width: 100% !important;
+    }
+}
