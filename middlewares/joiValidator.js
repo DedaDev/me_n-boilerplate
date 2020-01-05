@@ -1,7 +1,10 @@
 const joiValidator = (schema, prop) => (req, res, next) => {
-  const { error } = schema.validate(req[prop]);
-  if (!error) next();
-  else {
+  const { error, value } = schema.validate(req[prop]);
+  if (!error) {
+    req.joi = value;
+    res.joi = value;
+    next();
+  } else {
     const errors = error.details.map((e) => e.message);
     res.status(422).send({ errors });
   }
